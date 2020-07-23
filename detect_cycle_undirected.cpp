@@ -1,28 +1,28 @@
 //Program to detect cycle in an undirected graph using parent variable
 
-bool isCyclicUtil(int V, bool recStack[], bool visited[], int v, vector<int> adj[]){
-    if(visited[v]==false){
-        visited[v]=true;
-        recStack[v]=true;
-        for(auto i = adj[v].begin(); i!=adj[v].end(); i++){
-            if(!visited[*i] && isCyclicUtil(V, recStack, visited, *i, adj))
+bool isCyclicUtil(vector<int> g[], int v, bool visited[], int parent, int V){
+    visited[v] = true;
+    for(auto i=g[v].begin();i!=g[v].end(); i++){
+        if(!visited[*i]){
+            if(isCyclicUtil(g, *i, visited, v, V))
             return true;
-            else if(recStack[*i])
+        }else if(*i!=parent){
             return true;
         }
     }
-    recStack[v]=false;
     return false;
+    
 }
-bool isCyclic( vector<int> adj[], int V)
+bool isCyclic(vector<int> g[], int V)
 {
-    bool recStack[V] = {false};
-    bool visited[V] = {false};
+    bool visited [V] = {false};
+    
     for(int i=0;i<V;i++){
-        if(isCyclicUtil(V, recStack, visited, i, adj)){
-            return true;
+        if(!visited[i]){
+            if(isCyclicUtil (g, i, visited, -1, V)){
+                return true;
+            }
         }
     }
     return false;
-    // Your code here
 }
