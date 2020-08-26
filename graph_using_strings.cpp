@@ -16,12 +16,12 @@ int main() {
         }
         A.push_back(x);
 	}
-	for(int i=0;i<A.size();i++){
-	    for(int j=0;j<A[i].size();j++){
-	        cout<<A[i][j]<<" ";
-	    }
+// 	for(int i=0;i<A.size();i++){
+// 	    for(int j=0;j<A[i].size();j++){
+// 	        cout<<A[i][j]<<" ";
+// 	    }
 
-	}
+// 	}
 	for(int i=0;i<A.size();i++)
 	{
 	    string ele;
@@ -31,7 +31,7 @@ int main() {
 	        }
 	        if(j>2){
 	            Adj[ele].push_back({A[i][j], stoi(A[i][2])});
-	            cout<<"true"<<endl;
+	            Adj[A[i][j]].push_back({ele, stoi(A[i][2])});
 	        }
 	    }
 	    
@@ -48,3 +48,12 @@ int main() {
 	
 	return 0;
 }
+
+/**
+Input: 
+5
+evergreen 1 2 super my
+evergreen 1 3 classic
+classic 2 3 my
+my 2 5 super
+*/
