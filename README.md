@@ -1,6 +1,6 @@
 # HacktoberFEST 2020
 
-Post any Competitive Code from Websites like GFG, LeetCode, Codechef
+Post any Competitive Code from websites like GeeksforGeeks, LeetCode, Codechef
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
